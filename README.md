@@ -36,6 +36,36 @@ Metadata include time the record was received, team names, gameDate, etc.
 
 This simple app runs inside a docker container, and the provided Dockerfile builds the whole thing.
 
+How to run the solution:
 
+First we have to build the Docker image
+
+Go to the project directory (in where your Dockerfile is, containing your app directory).
+   
+Build your FastAPI image:
+
+> $ docker build -t myimage .
+
+Then we can start the Docker Container service
+
+To do so, run a container based on the image we just created:
+
+> $ docker run -d --name mycontainer -p 80:80 myimage
+
+With the -d flag the container will run in the background and serve the API calls.
+
+To stop that container, and the service, we should run:
+> $ docker container stop mycontainer
+
+Containers are disposable, so we can delete with the prune command that will delete all stopped containers - be careful not to delete something you actually want to restart!
+> $ docker container prune
+ 
+Now we are ready to access our app. Go to
+> http://127.0.0.1/docs
+
+and verify that the app is up an running.
+
+For now, you will be greeted with a simple "Hello World" message if you go to home directory
+> http://127.0.0.1/
 
 
