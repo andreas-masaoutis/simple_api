@@ -1,0 +1,22 @@
+version : '3.8'
+
+services:
+
+  solution:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /simple_api/app
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
+
+    ports:
+      - 80:80
+    
+    deploy:
+      resources:
+        limits:
+          cpus: 1
+          memory: 512M
+    volumes:
+      - ./:/simple_api/
+    tty: true
