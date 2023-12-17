@@ -61,11 +61,11 @@ Containers are disposable, so we can delete with the prune command that will del
 > $ docker container prune
  
 Now we are ready to access our app. Go to
-> http://127.0.0.1/docs
+> http://localhost/docs
 
 and verify that the app is up an running.
 
 For now, you will be greeted with a simple "Hello World" message if you go to home directory
-> http://127.0.0.1/
+> http://localhost/
 
 
